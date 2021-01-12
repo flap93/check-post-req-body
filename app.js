@@ -7,7 +7,8 @@ require('dotenv').config();
 const app = express();
 
 // ****************** require the necessary npm package here: ******************
-// ... your code here
+
+const mongoose  = require('mongoose');
 
 // *****************************************************************************
 
@@ -21,7 +22,12 @@ app.get('/', (req, res) => {
 });
 
 // 4.
-// ... your code here
+app.post('/theAge', (req, res) => {
+console.log(req.query.theAge);
+res.render('index');
+
+
+} )
 
 // 5:
 // ... your code here
