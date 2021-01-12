@@ -5,10 +5,10 @@ const hbs = require('hbs');
 require('dotenv').config();
 
 const app = express();
-
+const bodyParser = require('body-parser')
 // ****************** require the necessary npm package here: ******************
 
-const mongoose  = require('mongoose');
+app.use(express.urlencoded({ extended: true}));
 
 // *****************************************************************************
 
@@ -22,12 +22,11 @@ app.get('/', (req, res) => {
 });
 
 // 4.
-app.post('/theAge', (req, res) => {
-console.log(req.query.theAge);
-res.render('index');
+app.post('/create', (req, res) => {
+  const { theAge} = req.body;
+console.log(`User's age is ${theAge}`);
 
-
-} )
+});
 
 // 5:
 // ... your code here
